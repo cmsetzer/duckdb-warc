@@ -482,6 +482,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "duckdb-warc"
+version = "0.1.0"
+dependencies = [
+ "duckdb",
+ "duckdb-loadable-macros",
+ "libduckdb-sys",
+]
+
+[[package]]
 name = "equivalent"
 version = "1.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1110,15 +1119,6 @@ name = "rustversion"
 version = "1.0.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "955d28af4278de8121b7ebeb796b6a45735dc01436d898801014aced2773a3d6"
-
-[[package]]
-name = "rusty_quack"
-version = "0.1.0"
-dependencies = [
- "duckdb",
- "duckdb-loadable-macros",
- "libduckdb-sys",
-]
 
 [[package]]
 name = "ryu"

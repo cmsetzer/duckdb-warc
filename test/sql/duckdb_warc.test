@@ -1,0 +1,19 @@
+# name: test/sql/duckdb_warc.test
+# description: test duckdb_warc extension
+
+# Before we load the extension, this will fail
+statement error
+SELECT read_warc('world');
+----
+Catalog Error: Scalar Function with name read_warc does not exist!
+
+# Require statement will ensure the extension is loaded from now on
+require duckdb_warc
+
+require icu
+
+# Confirm the extension works
+query I
+SELECT * from read_warc('world');
+----
+Hello, world!
