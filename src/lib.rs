@@ -36,9 +36,7 @@ impl VTab for HelloVTab {
     }
 
     fn init(_: &InitInfo) -> Result<Self::InitData, Box<dyn std::error::Error>> {
-        Ok(HelloInitData {
-            done: AtomicBool::new(false),
-        })
+        Ok(HelloInitData { done: AtomicBool::new(false) })
     }
 
     fn func(
