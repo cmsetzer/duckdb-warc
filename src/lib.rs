@@ -1,5 +1,7 @@
 #![warn(clippy::all, nonstandard_style, rust_2018_idioms)]
 
+pub mod schema;
+
 use duckdb::{
     core::{DataChunkHandle, Inserter, LogicalTypeHandle, LogicalTypeId},
     vtab::{BindInfo, InitInfo, TableFunctionInfo, VTab},
