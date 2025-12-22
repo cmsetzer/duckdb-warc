@@ -1,12 +1,5 @@
 use duckdb::core::LogicalTypeId;
-use duckdb::core::LogicalTypeId::{Integer, Timestamp, Varchar};
-
 use warc::WarcHeader;
-use warc::WarcHeader::{
-    BlockDigest, ConcurrentTo, ContentLength, ContentType, Date, Filename, IPAddress,
-    IdentifiedPayloadType, PayloadDigest, Profile, RecordID, RefersTo, SegmentNumber,
-    SegmentOriginID, SegmentTotalLength, TargetURI, Truncated, WarcInfoID, WarcType,
-};
 
 #[derive(Debug)]
 pub struct Field {
@@ -15,23 +8,23 @@ pub struct Field {
 }
 
 pub static WARC_FIELDS: &[Field] = &[
-    Field { header: WarcType, field_type: Varchar },
-    Field { header: TargetURI, field_type: Varchar },
-    Field { header: Date, field_type: Timestamp },
-    Field { header: Profile, field_type: Varchar },
-    Field { header: RecordID, field_type: Varchar },
-    Field { header: RefersTo, field_type: Varchar },
-    Field { header: ContentType, field_type: Varchar },
-    Field { header: ContentLength, field_type: Integer },
-    Field { header: BlockDigest, field_type: Varchar },
-    Field { header: ConcurrentTo, field_type: Varchar },
-    Field { header: Filename, field_type: Varchar },
-    Field { header: IdentifiedPayloadType, field_type: Varchar },
-    Field { header: IPAddress, field_type: Varchar },
-    Field { header: PayloadDigest, field_type: Varchar },
-    Field { header: SegmentNumber, field_type: Integer },
-    Field { header: SegmentOriginID, field_type: Varchar },
-    Field { header: SegmentTotalLength, field_type: Integer },
-    Field { header: Truncated, field_type: Varchar },
-    Field { header: WarcInfoID, field_type: Varchar },
+    Field { header: WarcHeader::RecordID, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::ContentLength, field_type: LogicalTypeId::Integer },
+    Field { header: WarcHeader::Date, field_type: LogicalTypeId::Timestamp },
+    Field { header: WarcHeader::WarcType, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::ContentType, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::ConcurrentTo, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::BlockDigest, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::PayloadDigest, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::IPAddress, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::RefersTo, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::TargetURI, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::Truncated, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::WarcInfoID, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::Filename, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::Profile, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::IdentifiedPayloadType, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::SegmentNumber, field_type: LogicalTypeId::Integer },
+    Field { header: WarcHeader::SegmentOriginID, field_type: LogicalTypeId::Varchar },
+    Field { header: WarcHeader::SegmentTotalLength, field_type: LogicalTypeId::Integer },
 ];
