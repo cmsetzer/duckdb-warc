@@ -8,6 +8,7 @@ use duckdb::{
     Connection, Result,
 };
 use duckdb_loadable_macros::duckdb_entrypoint_c_api;
+use jiff;
 use libduckdb_sys as ffi;
 use std::{
     error::Error,
@@ -82,6 +83,11 @@ impl VTab for ReadWarcVTab {
                             LogicalTypeId::Integer => {
                                 let slice = column_vector.as_mut_slice::<u32>();
                                 slice[record_index] = value.parse::<u32>()?;
+                            }
+                            LogicalTypeId::Timestamp => {
+                                let slice = column_vector.as_mut_slice::<i64>();
+                                let timestamp: jiff::Timestamp = value.parse()?;
+                                slice[record_index] = timestamp.as_microsecond();
                             }
                             _ => {
                                 column_vector.set_null(record_index);

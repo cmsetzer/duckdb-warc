@@ -13,5 +13,6 @@ strip = true
 [dependencies]
 duckdb = { version = "=1.4.3", features = ["vtab-loadable"] }
 duckdb-loadable-macros = "=0.1.13"
+jiff = "0.2.16"
 libduckdb-sys = { version = "=1.4.3", features = ["loadable-extension"] }
 warc = "=0.3.3"
